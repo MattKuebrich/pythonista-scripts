@@ -31,5 +31,3 @@ if l >=1:
 
 #write new file
 editor.make_new_file(filename, text)
-
-
