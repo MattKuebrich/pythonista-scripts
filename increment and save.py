@@ -27,7 +27,7 @@ if l >=1:
 	num2 = int(num) + 1
 	#remove number from filename and add
 	#the new incremented number
-	filename = filename[:-l] + str(num2)
+	filename = filename[:-l] + str(num2) + ".py"
 
 #write new file
 editor.make_new_file(filename, text)
