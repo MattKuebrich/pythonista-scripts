@@ -2,32 +2,25 @@
 # I wrote it so I could quickly save different versions of scripts.
 # It is meant to be added to the editor's action menu. 
 
-import editor
-import re
-
+import editor, os, re
 text = editor.get_text()
-filepath = editor.get_path()
+if not text:
+    sys.exit('No text in the Editor.')
 
-#sloppy regex
-filepath_a = re.split("/",filepath)
-filename = filepath_a[len(filepath_a)-1]
-
-#remove extension
-filename = filename[:-3]
+filename = os.path.split(editor.get_path())[1][:-3]
 
 #finds number at end
 num = re.split('[^\d]', filename)[-1]
 
-#get length of number string 
-l=len(num)
-
 #check if number string is empty
 #if file ends with a number, increment it
+l = len(num)
+
 if l >=1:
 	num2 = int(num) + 1
-	#remove number from filename and add
-	#the new incremented number
 	filename = filename[:-l] + str(num2) + ".py"
+else:
+	filename = filename + str(1) + ".py"
 
 #write new file
 editor.make_new_file(filename, text)
