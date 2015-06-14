@@ -2,7 +2,7 @@
 # I wrote it so I could quickly save different versions of scripts.
 # It is meant to be added to the editor's action menu. 
 
-import editor, os, re
+import editor, os, sys, re
 text = editor.get_text()
 if not text:
     sys.exit('No text in the Editor.')
